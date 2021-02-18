@@ -1,0 +1,9 @@
+db.sqlite3
+/env/
+*.pyc
+migrations
+.DS_Store
+.vscode/
+myTime/__pycache__
+scheduler/__pycache__
+myTime/migrations/__pycache__

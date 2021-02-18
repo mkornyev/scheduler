@@ -1,0 +1,43 @@
+{% extends "myTime/base.html" %}
+
+{% block pageName %}
+    Weight Room
+{% endblock %}
+
+{% block content%}
+
+<div class="row landing-header">
+    <div class="col">
+
+      <h1>{{ pageName }}</h1>
+      <h2>Capacity: {{ capacity }} </h2>
+      <h3>Today's Hours: {{ hours }} </h3>
+
+    </div>
+</div>
+
+<div class="row landing-body">
+  <div class="col">
+    
+    <form method="POST" action="{% url 'Reserve' %}">
+      <input type="hidden" name="pageToken" value="{{ pageToken }}">
+      <input type="hidden" name="pageName" value="{{ pageName }}">
+      {% csrf_token %}
+      <button type="submit" class="btn-lg btn-block btn-primary">Reserve a<span style="color: indigo;">n unofficial</span> Timeslot</button>
+    </form>
+
+    <br>
+
+    <form method="POST" action="{% url 'Report' %}"></form>
+      <input type="hidden" name="pageToken" value="{{ pageToken }}">
+      <input type="hidden" name="pageName" value="{{ pageName }}">
+      {% csrf_token %}
+      <button type="submit" class="btn-lg btn-block btn-secondary">Report the Current Capacity</button>
+    </form>
+
+    <a href="{% url 'Home' %}" class="btn-lg btn-block btn-info go-home-button">&#8592; Go Home</a>
+
+  </div>
+</div>
+
+{% endblock %}

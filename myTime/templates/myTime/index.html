@@ -1,0 +1,29 @@
+{% extends "myTime/base.html" %}
+
+{% block pageName %}
+    Home
+{% endblock %}
+
+{% block content%}
+
+<div class="row landing-header">
+    <div class="col">
+
+      <h1>myTime</h1>
+      <h2>CMU's unofficial scheduling service</h2>
+
+    </div>
+</div>
+
+<div class="row landing-body">
+  <div class="col">
+    
+    <h3>Where are you going?</h3> 
+    <br>
+    <a href="{% url 'Weigand Home' %}" class="btn-lg btn-block btn-danger">Weigand Gymnasium</a>
+    <a href="{% url 'Gym Home' %}" class="btn-lg btn-block btn-warning">The Weight Room</a>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "myTime/base.html" %}
+
+{% block pageName %}
+    Reserve a Timeslot
+{% endblock %}
+
+{% block content%}
+
+<div class="row landing-header">
+    <div class="col">
+
+      <h1>{{ pageName }}</h1>
+      <h2>Reserve a Time</h2>
+
+    </div>
+</div>
+
+<div class="row landing-body">
+  <div class="col">
+    
+    <!-- <form method="POST" action="{% url 'Report' %}"></form>
+      <input type="hidden" name="pageToken" value="{{ pageToken }}">
+      {% csrf_token %}
+      <button type="submit" class="btn-lg btn-block btn-secondary">Report the Current Capacity</button>
+    </form> -->
+
+    <button onclick="goBack();" class="btn-lg btn-block btn-info go-home-button">&#8592; Go Back</button>
+
+  </div>
+</div>
+
+{% endblock %}

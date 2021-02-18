@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html id="html-tag" lang="en"> 
+
+    <head>
+        <title>myTime | {% block pageName %}{% endblock %}</title>
+        {% load static %}
+        <!-- <link rel="icon" href="{% static 'myTime/logo.png' %}"> -->
+        
+        <!-- General meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="author" content="Maksym Kornyev">
+        <meta name="keywords" content="maksym,max,kornyev,web,development,javscript,html,css,information,systems,carnegie,mellon,cmu,rails,coltrane,john">
+        
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="myTime">
+        <!-- <meta itemprop="image" content="{% static 'mkv2/logo.png' %}"> -->
+
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'myTime/styles.css' %}" />
+        <link rel="stylesheet" media="all" type="text/css" href="{% static 'myTime/styles_mobile.css' %}" />
+        {% block page_styles %}{% endblock %}
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- JQuery (In Head for working inline scripts)  -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="d-flex flex-column">
+
+        {% block content %}{% endblock %}
+
+        <!-- Bootstrap.js -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- GSAP -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script> -->
+
+        <!-- Custom Scripts -->
+        {% load static %}
+        <script type="text/javascript" src="{% static 'myTime/scripts.js' %}"></script>
+        {% block page_scripts %}{% endblock %}
+    </body>
+
+</html>
