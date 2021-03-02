@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from myTime.models import ???
+from myTime.models import Location, DailyHours, Reservation, Report, WEEKDAYS
 # from django.db.models import Q
 
 from enum import Enum
@@ -29,17 +29,16 @@ def weigandHome(request):
   }
   return render(request, 'myTime/status.html', context)
 
+
 # GENERIC ACTIONS for Views
 
 def reserveTimeslot(request):
   context={}
 
-  if request.method == 'POST' and \
-      'pageToken' in request.POST and \
-      'pageName' in request.POST:
-
-    context['pageName'] = request.POST['pageName']
-    context['pageToken'] = request.POST['pageToken']
+  if request.method == 'POST' and 'pageToken' in request.POST:
+    loc = Location.objects.filter(token=request.POST['pageToken']).first()
+    context['location'] = loc 
+    context['weekdays'] = WEEKDAYS
 
     if 'timeslot' in request.POST:
       pass
@@ -50,12 +49,12 @@ def reserveTimeslot(request):
   return render(request, 'myTime/index.html', context)
 
 def reportCapacity(request):
-  if request.method == 'POST' and \
-        'pageToken' in request.POST and \
-        'pageName' in request.POST:
+  context = {}
 
-    context['pageName'] = request.POST['pageName']
-    context['pageToken'] = request.POST['pageToken']
+  if request.method == 'POST' and 'pageToken' in request.POST:
+
+    loc = Location.objects.filter(token=request.POST['pageToken']).first()
+    context['location'] = loc 
 
     if 'capacity' in request.POST:
       pass

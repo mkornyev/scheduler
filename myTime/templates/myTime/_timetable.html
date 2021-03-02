@@ -1,0 +1,51 @@
+<style>
+
+  .timetable .weekday {
+    width: 14.2857142857%;
+    float: left;
+    margin-bottom: 10%;
+  }
+
+  .timetable .period {
+    height: 20px;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .timetable .empty-period {
+    height: 20px;
+    background-color: blue;
+    border: 1px solid black;
+    position: relative;
+  }
+
+  .timetable span.time-marker {
+    position: absolute; 
+    right: 105%;
+    bottom: -15%;
+  }
+</style>
+
+<div class="timetable">
+
+{% for h in location.hours.all %}    
+    
+  <div class="weekday">{{ h.getDayOfWeek }}
+    {% for emptyperiod in h.getOffset %}
+      <div class="empty-period">
+        
+        {% if h.day == 0 %}
+          <span class="time-marker">{{ emptyperiod }}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {% for period in "x"|ljust:h.getNumTimePeriods %}
+
+      <div class="period"></div>
+
+    {% endfor %}
+  </div>
+
+{% endfor %}
+</div>

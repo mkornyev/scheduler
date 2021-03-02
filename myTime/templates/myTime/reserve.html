@@ -9,7 +9,7 @@
 <div class="row landing-header">
     <div class="col">
 
-      <h1>{{ pageName }}</h1>
+      <h1>{{ location.name }}</h1>
       <h2>Reserve a Time</h2>
 
     </div>
@@ -17,6 +17,8 @@
 
 <div class="row landing-body">
   <div class="col">
+
+    {% include 'myTime/_timetable.html' %}
     
     <!-- <form method="POST" action="{% url 'Report' %}"></form>
       <input type="hidden" name="pageToken" value="{{ pageToken }}">
